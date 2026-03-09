@@ -222,6 +222,33 @@
   .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
 
   .about-side {}
+  .profile-pic {
+    margin-bottom: 2.5rem; position: relative;
+    width: 100%; max-width: 280px;
+  }
+  .profile-pic-inner {
+    position: relative; overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+  .profile-pic img {
+    width: 100%; height: auto; display: block;
+    border: 3px solid var(--border);
+    transition: all 0.4s ease;
+    filter: grayscale(20%);
+  }
+  .profile-pic:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    border-color: var(--accent);
+  }
+  .profile-pic::before {
+    content: ''; position: absolute; inset: -4px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity 0.4s;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    z-index: -1;
+  }
+  .profile-pic:hover::before { opacity: 0.3; }
   .info-block { margin-bottom: 2.5rem; }
   .info-block h3 {
     font-size: 0.7rem; font-weight: 700; letter-spacing: 3px;
@@ -517,6 +544,11 @@
       </div>
     </div>
     <div class="about-side reveal" id="contact">
+      <div class="profile-pic">
+        <div class="profile-pic-inner">
+          <img src="picofme.png" alt="Raj Kumar S - Profile Picture">
+        </div>
+      </div>
       <div class="info-block">
         <h3>Contact</h3>
         <a href="tel:6381561759" class="contact-item">

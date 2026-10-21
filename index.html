@@ -464,16 +464,58 @@
   .contact-claim em { font-style: italic; color: var(--accent); }
 
   .directory { border-top: 1px solid var(--rule); }
-  .directory a {
-    display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 1rem;
-    gap: 1rem; align-items: center;
-    padding: 1.15rem 0; border-bottom: 1px solid var(--rule-soft);
+  .dir-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem; align-items: center;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .dir-main {
+    display: grid; grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 1rem; align-items: center; padding: 1.15rem 0;
     transition: padding 0.25s ease, color 0.2s ease;
   }
-  .directory a:hover { color: var(--accent); padding-left: 0.5rem; }
+  @media (max-width: 480px) { .dir-main { grid-template-columns: 1fr; gap: 0.2rem; } }
+  .dir-main:hover { color: var(--accent); padding-left: 0.5rem; }
   .dir-value { font-size: 1.08rem; font-weight: 600; word-break: break-word; }
   .dir-arrow { font-family: var(--ff-mono); font-size: 1.05rem; color: var(--ink-mute); }
-  .directory a:hover .dir-arrow { color: var(--accent); }
+  .dir-main:hover + .dir-arrow { color: var(--accent); }
+
+  .copy-btn {
+    font-family: var(--ff-body); font-size: 0.86rem; font-weight: 600;
+    background: none; cursor: pointer; color: var(--ink-soft);
+    border: 1px solid var(--rule); padding: 0.4rem 0.75rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .copy-btn[data-done="true"] { color: var(--primary); border-color: var(--primary); }
+
+  /* ---------- résumés ---------- */
+  .resumes { margin-top: 2.25rem; border-top: 1px solid var(--rule); }
+  .resume-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem 1rem; align-items: center;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule-soft);
+  }
+  .resume-row .res-name { font-size: 1.04rem; font-weight: 600; }
+  .resume-row .res-note { display: block; color: var(--ink-mute); font-size: 0.95rem; font-weight: 400; }
+  .res-flag {
+    display: none; font-family: var(--ff-mono); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);
+  }
+  .resume-row.is-suggested .res-flag { display: inline; }
+  .res-get {
+    display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap;
+    font-size: 0.95rem; font-weight: 600;
+    border: 1px solid var(--rule); padding: 0.5rem 0.9rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .res-get:hover { color: var(--accent); border-color: var(--accent); }
+  .res-get svg { width: 0.9rem; height: 0.9rem; flex: none; }
+
+  button.btn-rule {
+    background: none; border: 0; border-bottom: 1px solid var(--ink);
+    color: inherit; cursor: pointer; font-family: var(--ff-body);
+  }
 
   /* ---------- colophon ---------- */
   .colophon {
@@ -503,7 +545,8 @@
   }
 
   @media print {
-    .masthead, .filter, .skip-link, .portrait-block { display: none; }
+    .masthead, .filter, .skip-link, .portrait-block,
+    .copy-btn, .resumes, #printBtn, .dir-arrow { display: none; }
     body { background: #fff; color: #000; }
     .band, .entry, .work { break-inside: avoid; }
   }
@@ -1137,41 +1180,88 @@
               Write to me
               <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </a>
+            <button class="btn-rule" id="printBtn" type="button">Print / save as PDF</button>
           </div>
         </div>
 
         <div class="directory reveal">
-          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=rajkumar101104@gmail.com" target="_blank" rel="noopener noreferrer">
-            <span class="label">Email</span>
-            <span class="dir-value">rajkumar101104@gmail.com</span>
+          <div class="dir-row">
+            <a class="dir-main" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=rajkumar101104@gmail.com" target="_blank" rel="noopener noreferrer">
+              <span class="label">Email</span>
+              <span class="dir-value">rajkumar101104@gmail.com</span>
+            </a>
+            <button class="copy-btn" type="button" data-copy="rajkumar101104@gmail.com">Copy</button>
+          </div>
+          <div class="dir-row">
+            <a class="dir-main" href="tel:+916381561759">
+              <span class="label">Phone</span>
+              <span class="dir-value">+91 6381561759</span>
+            </a>
+            <button class="copy-btn" type="button" data-copy="+91 6381561759">Copy</button>
+          </div>
+          <div class="dir-row">
+            <a class="dir-main" href="https://www.linkedin.com/in/rajkumar042/" target="_blank" rel="noopener noreferrer">
+              <span class="label">LinkedIn</span>
+              <span class="dir-value">linkedin.com/in/rajkumar042</span>
+            </a>
             <span class="dir-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="tel:+916381561759">
-            <span class="label">Phone</span>
-            <span class="dir-value">+91 6381561759</span>
+          </div>
+          <div class="dir-row">
+            <a class="dir-main" href="https://github.com/Rajkumar-042" target="_blank" rel="noopener noreferrer">
+              <span class="label">GitHub</span>
+              <span class="dir-value">github.com/Rajkumar-042</span>
+            </a>
             <span class="dir-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://www.linkedin.com/in/rajkumar042/" target="_blank" rel="noopener noreferrer">
-            <span class="label">LinkedIn</span>
-            <span class="dir-value">linkedin.com/in/rajkumar042</span>
+          </div>
+          <div class="dir-row">
+            <a class="dir-main" href="https://rajkumar.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <span class="label">Portfolio</span>
+              <span class="dir-value">rajkumar.vercel.app</span>
+            </a>
             <span class="dir-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://github.com/Rajkumar-042" target="_blank" rel="noopener noreferrer">
-            <span class="label">GitHub</span>
-            <span class="dir-value">github.com/Rajkumar-042</span>
+          </div>
+          <div class="dir-row">
+            <a class="dir-main" href="https://www.google.com/maps/place/Bengaluru,+Karnataka" target="_blank" rel="noopener noreferrer">
+              <span class="label">Location</span>
+              <span class="dir-value">Bengaluru, Karnataka, India</span>
+            </a>
             <span class="dir-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://rajkumar.vercel.app/" target="_blank" rel="noopener noreferrer">
-            <span class="label">Portfolio</span>
-            <span class="dir-value">rajkumar.vercel.app</span>
-            <span class="dir-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://www.google.com/maps/place/Bengaluru,+Karnataka" target="_blank" rel="noopener noreferrer">
-            <span class="label">Location</span>
-            <span class="dir-value">Bengaluru, Karnataka, India</span>
-            <span class="dir-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+
+      <div class="resumes reveal">
+        <h3 class="label" style="padding-bottom:0.85rem">Résumés</h3>
+        <div class="resume-row" data-resume="hr">
+          <div>
+            <span class="res-name">HR &amp; People Operations</span>
+            <span class="res-note">Recruitment, employee lifecycle, HR administration <span class="res-flag">Matches your filter</span></span>
+          </div>
+          <a class="res-get" href="resume/rajkumar-hr.pdf" download>
+            Download PDF
+            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
           </a>
         </div>
+        <div class="resume-row" data-resume="dev">
+          <div>
+            <span class="res-name">Software Development</span>
+            <span class="res-note">Java, React Native, Node.js, REST APIs, cloud deployment <span class="res-flag">Matches your filter</span></span>
+          </div>
+          <a class="res-get" href="resume/rajkumar-developer.pdf" download>
+            Download PDF
+            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+          </a>
+        </div>
+        <div class="resume-row" data-resume="ml">
+          <div>
+            <span class="res-name">Data &amp; Machine Learning</span>
+            <span class="res-note">Python, applied ML, data analysis and preprocessing <span class="res-flag">Matches your filter</span></span>
+          </div>
+          <a class="res-get" href="resume/rajkumar-data-ml.pdf" download>
+            Download PDF
+            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+          </a>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -1311,10 +1401,12 @@
   }, { passive: true });
   mark();
 
-  /* ---------- discipline filter ---------- */
+  /* ---------- discipline filter, reflected in the URL ---------- */
   var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
   var items = Array.prototype.slice.call(document.querySelectorAll('[data-track]'));
+  var resumeRows = Array.prototype.slice.call(document.querySelectorAll('[data-resume]'));
   var status = document.getElementById('filterStatus');
+  var TRACKS = ['all', 'hr', 'dev', 'ml'];
   var NOTE = {
     all: '',
     hr: 'People operations only',
@@ -1322,7 +1414,9 @@
     ml: 'AI/ML & data only'
   };
 
-  function filter(kind) {
+  function filter(kind, push) {
+    if (TRACKS.indexOf(kind) === -1) kind = 'all';
+
     items.forEach(function (item) {
       var tracks = (item.getAttribute('data-track') || '').split(/\s+/);
       item.classList.toggle('is-out', kind !== 'all' && tracks.indexOf(kind) === -1);
@@ -1330,11 +1424,77 @@
     filterBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.filter === kind));
     });
+    /* Point at the résumé that matches the track being viewed. */
+    resumeRows.forEach(function (r) {
+      r.classList.toggle('is-suggested', r.dataset.resume === kind);
+    });
     if (status) status.textContent = NOTE[kind] || '';
+
+    if (push && window.history && window.history.replaceState) {
+      var url = window.location.pathname + (kind === 'all' ? '' : '?track=' + kind) + window.location.hash;
+      try { window.history.replaceState(null, '', url); } catch (e) {}
+    }
   }
+
   filterBtns.forEach(function (b) {
-    b.addEventListener('click', function () { filter(b.dataset.filter); });
+    b.addEventListener('click', function () { filter(b.dataset.filter, true); });
   });
+
+  /* Open pre-filtered when the link carries ?track= */
+  var initial = 'all';
+  try {
+    var q = new URLSearchParams(window.location.search).get('track');
+    if (q) initial = q.toLowerCase();
+  } catch (e) {}
+  filter(initial, false);
+
+  /* ---------- copy to clipboard ---------- */
+  Array.prototype.slice.call(document.querySelectorAll('.copy-btn')).forEach(function (btn) {
+    var original = btn.textContent;
+    btn.setAttribute('aria-label', 'Copy ' + btn.dataset.copy + ' to clipboard');
+
+    function done(ok) {
+      btn.textContent = ok ? 'Copied' : 'Press Ctrl+C';
+      btn.setAttribute('data-done', String(ok));
+      window.setTimeout(function () {
+        btn.textContent = original;
+        btn.removeAttribute('data-done');
+      }, 2000);
+    }
+
+    btn.addEventListener('click', function () {
+      var text = btn.dataset.copy;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallback(text); });
+      } else {
+        fallback(text);
+      }
+    });
+
+    /* Older browsers and insecure origins: select the text so Ctrl+C works. */
+    function fallback(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:-100px;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done(ok);
+    }
+  });
+
+  /* ---------- print / save as PDF ---------- */
+  var printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', function () {
+      /* Print the whole record, not whatever the filter is showing. */
+      filter('all', true);
+      window.print();
+    });
+  }
 
   /* ---------- year ---------- */
   var y = document.getElementById('year');

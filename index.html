@@ -6,8 +6,8 @@
 <title>Rajkumar S. — HR Executive &amp; Software Developer</title>
 <meta name="description" content="Rajkumar S. — HR Executive at DENDO with hands-on software development, AI/ML and cloud deployment experience. Technology. People. Business.">
 <meta name="author" content="Rajkumar S.">
-<meta name="theme-color" content="#eef4fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c1420" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15171a" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://rajkumar.vercel.app/">
 
 <meta property="og:type" content="profile">
@@ -37,7 +37,7 @@
 <link rel="icon" href="picofme.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
   /* ============================================================
@@ -48,37 +48,38 @@
      ============================================================ */
   :root[data-theme="paper"] {
     color-scheme: light;
-    --paper:      #eef4fb;   /* page — light blue */
-    --paper-2:    #e0eaf6;   /* alternating band */
-    --paper-3:    #fbfdff;   /* raised block */
-    --ink:        #10233d;   /* deep blue ink */
-    --ink-soft:   #39506e;
-    --ink-mute:   #4f6079;
-    --rule:       rgba(16,35,61,0.18);
-    --rule-soft:  rgba(16,35,61,0.10);
-    --primary:      #173f73;            /* deep blue */
-    --primary-soft: rgba(23,63,115,0.09);
+    /* Base is neutral; blue appears only on accents and key marks. */
+    --paper:      #f7f8f9;   /* page — neutral off-white */
+    --paper-2:    #edeef1;   /* alternating band */
+    --paper-3:    #ffffff;   /* raised block */
+    --ink:        #16181c;   /* neutral near-black */
+    --ink-soft:   #3b4047;
+    --ink-mute:   #52585f;
+    --rule:       rgba(22,24,28,0.20);
+    --rule-soft:  rgba(22,24,28,0.11);
+    --primary:      #15467f;            /* blue — name, buttons, marks */
+    --primary-soft: rgba(21,70,127,0.08);
     --accent:       #0a5f87;            /* azure, text-safe */
     --accent-mark:  #1a8cc4;            /* bright azure, rules and marks only */
-    --on-primary:   #f4f8fd;
+    --on-primary:   #ffffff;
     --portrait-blend: multiply;
   }
 
   :root[data-theme="ink"] {
     color-scheme: dark;
-    --paper:      #0c1420;   /* deep blue black */
-    --paper-2:    #111b2a;
-    --paper-3:    #16212f;
-    --ink:        #e8eef7;
-    --ink-soft:   #a9b8cc;
-    --ink-mute:   #8697ad;
-    --rule:       rgba(232,238,247,0.19);
-    --rule-soft:  rgba(232,238,247,0.10);
-    --primary:      #93b8e8;            /* lifted blue */
-    --primary-soft: rgba(147,184,232,0.12);
-    --accent:       #5ec5f0;            /* bright azure */
-    --accent-mark:  #5ec5f0;
-    --on-primary:   #071018;
+    --paper:      #15171a;   /* neutral charcoal */
+    --paper-2:    #1b1e22;
+    --paper-3:    #21252a;
+    --ink:        #edeef0;
+    --ink-soft:   #b4b8bd;
+    --ink-mute:   #949a9f;
+    --rule:       rgba(237,238,240,0.20);
+    --rule-soft:  rgba(237,238,240,0.11);
+    --primary:      #8fb6ea;            /* blue */
+    --primary-soft: rgba(143,182,234,0.12);
+    --accent:       #65c7f0;            /* azure */
+    --accent-mark:  #65c7f0;
+    --on-primary:   #0a1220;
     --portrait-blend: normal;
   }
 
@@ -102,8 +103,9 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--ff-body);
-    font-size: 16.5px;
-    line-height: 1.6;
+    font-size: 17.5px;
+    line-height: 1.68;
+    font-weight: 400;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
@@ -116,13 +118,16 @@
 
   /* ---------- type ---------- */
   .display {
-    font-family: var(--ff-display); font-weight: 500;
-    letter-spacing: -0.02em; line-height: 1.05;
+    font-family: var(--ff-display); font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1.07;
   }
   .label {
-    font-family: var(--ff-mono); font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute);
+    font-family: var(--ff-mono); font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft);
+    line-height: 1.45;
   }
+  /* Dates and figures read better without the uppercase tracking. */
+  .label.plain { text-transform: none; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; }
 
   .shell { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
 
@@ -143,20 +148,20 @@
     gap: 1.5rem; height: 4.1rem;
   }
   .masthead-name {
-    font-family: var(--ff-display); font-size: 1.12rem; font-weight: 600;
+    font-family: var(--ff-display); font-size: 1.22rem; font-weight: 700;
     letter-spacing: -0.015em; white-space: nowrap;
   }
   .masthead-name sup {
-    font-family: var(--ff-mono); font-size: 0.55rem; font-weight: 500;
-    letter-spacing: 0.1em; color: var(--accent); margin-left: 0.4rem;
-    text-transform: uppercase;
+    font-family: var(--ff-mono); font-weight: 600;
+    letter-spacing: 0.04em; color: var(--accent); margin-left: 0.4rem;
+    text-transform: uppercase; font-size: 0.68rem;
   }
 
   .masthead-nav { display: flex; align-items: center; gap: 1.6rem; }
   .masthead-nav a {
     position: relative; padding: 0.35rem 0;
-    font-family: var(--ff-mono); font-size: 0.74rem; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--ink-soft);
+    font-family: var(--ff-body); font-size: 0.95rem; font-weight: 500;
+    letter-spacing: 0; color: var(--ink-soft);
   }
   .masthead-nav a::after {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
@@ -192,7 +197,7 @@
     }
     .masthead-nav[hidden] { display: none; }
     .masthead-nav a {
-      padding: 0.8rem 0; font-size: 0.8rem;
+      padding: 0.85rem 0; font-size: 1rem;
       border-bottom: 1px solid var(--rule-soft);
     }
   }
@@ -219,7 +224,7 @@
   .hero-name .surname { color: var(--primary); }
 
   .hero-claim {
-    font-family: var(--ff-display); font-weight: 400;
+    font-family: var(--ff-display); font-weight: 500;
     font-size: clamp(1.4rem, 3.3vw, 2.15rem); line-height: 1.22;
     letter-spacing: -0.015em; max-width: 24ch;
   }
@@ -229,23 +234,23 @@
 
   .split { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1.5rem; }
   @media (max-width: 620px) { .split { grid-template-columns: 1fr; gap: 0.6rem; } }
-  .split p.copy { color: var(--ink-soft); max-width: 60ch; }
+  .split p.copy { color: var(--ink-soft); max-width: 58ch; font-size: 1.06rem; }
   .split p.copy strong { color: var(--ink); font-weight: 600; }
 
   .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2.25rem; }
   .btn-solid {
     display: inline-flex; align-items: center; gap: 0.6rem;
     background: var(--primary); color: var(--on-primary);
-    border: 1px solid var(--primary); padding: 0.85rem 1.5rem;
-    font-size: 0.92rem; font-weight: 600;
+    border: 1px solid var(--primary); padding: 0.9rem 1.6rem;
+    font-size: 1rem; font-weight: 600;
     transition: background 0.2s, color 0.2s;
   }
   .btn-solid:hover { background: transparent; color: var(--primary); }
   .btn-solid svg { width: 1rem; height: 1rem; flex: none; }
 
   .btn-rule {
-    font-family: var(--ff-mono); font-size: 0.78rem; letter-spacing: 0.1em;
-    text-transform: uppercase; padding-bottom: 0.3rem;
+    font-family: var(--ff-body); font-size: 0.97rem; font-weight: 600;
+    letter-spacing: 0; padding-bottom: 0.3rem;
     border-bottom: 1px solid var(--ink);
     transition: color 0.2s, border-color 0.2s;
   }
@@ -280,16 +285,16 @@
   }
   @media (max-width: 620px) { .band-head { grid-template-columns: 1fr; gap: 0.6rem; } }
   .band-title { font-size: clamp(1.85rem, 4.2vw, 2.9rem); max-width: 30ch; }
-  .band-note { color: var(--ink-soft); max-width: 58ch; margin-top: 1rem; }
+  .band-note { color: var(--ink-soft); max-width: 58ch; margin-top: 1rem; font-size: 1.05rem; }
 
   /* ---------- about ---------- */
   .prose-body { max-width: 66ch; }
-  .prose-body p { color: var(--ink-soft); }
+  .prose-body p { color: var(--ink-soft); font-size: 1.06rem; }
   .prose-body p + p { margin-top: 1.1rem; }
   .prose-body strong { color: var(--ink); font-weight: 600; }
   .prose-body p.lead {
-    font-family: var(--ff-display); font-weight: 400; color: var(--ink);
-    font-size: clamp(1.15rem, 2.1vw, 1.4rem); line-height: 1.45;
+    font-family: var(--ff-display); font-weight: 500; color: var(--ink);
+    font-size: clamp(1.22rem, 2.2vw, 1.5rem); line-height: 1.45;
   }
 
   .ledger {
@@ -298,7 +303,7 @@
   }
   .ledger div { padding: 1.1rem 1.25rem 1.1rem 0; border-bottom: 1px solid var(--rule-soft); }
   .ledger dt { margin-bottom: 0.3rem; }
-  .ledger dd { font-size: 0.95rem; font-weight: 500; }
+  .ledger dd { font-size: 1.05rem; font-weight: 600; }
 
   /* ---------- filter ---------- */
   .filter {
@@ -307,15 +312,15 @@
     border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
   }
   .filter-btn {
-    font-family: var(--ff-mono); font-size: 0.75rem; letter-spacing: 0.08em;
-    text-transform: uppercase; cursor: pointer;
+    font-family: var(--ff-body); font-size: 0.97rem; font-weight: 600;
+    letter-spacing: 0; cursor: pointer;
     background: none; border: 0; border-bottom: 1px solid transparent;
     color: var(--ink-mute); padding: 0.2rem 0;
     transition: color 0.2s, border-color 0.2s;
   }
   .filter-btn:hover { color: var(--ink); }
   .filter-btn[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--accent-mark); }
-  .filter-status { font-family: var(--ff-mono); font-size: 0.72rem; color: var(--ink-mute); margin-left: auto; }
+  .filter-status { font-family: var(--ff-mono); font-size: 0.85rem; font-weight: 500; color: var(--ink-mute); margin-left: auto; }
 
   [data-track].is-out { display: none; }
 
@@ -338,33 +343,34 @@
 
   .entry-when { display: flex; flex-direction: column; gap: 0.45rem; }
   .entry-now {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-family: var(--ff-mono); font-size: 0.66rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-family: var(--ff-mono); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);
   }
   .entry-now::before { content: ''; width: 6px; height: 6px; background: var(--accent-mark); }
 
   .entry-role {
-    font-family: var(--ff-display); font-weight: 500; letter-spacing: -0.015em;
+    font-family: var(--ff-display); font-weight: 600; letter-spacing: -0.015em;
     font-size: clamp(1.3rem, 2.5vw, 1.65rem);
   }
-  .entry-where { color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.3rem; }
+  .entry-where { color: var(--ink-soft); font-size: 1.02rem; font-weight: 500; margin-top: 0.35rem; }
   .entry-where span { color: var(--ink-mute); margin: 0 0.4rem; }
 
   .duties { list-style: none; margin-top: 1.1rem; }
-  .duties li { position: relative; padding-left: 1.5rem; color: var(--ink-soft); font-size: 0.95rem; }
-  .duties li + li { margin-top: 0.4rem; }
+  .duties li { position: relative; padding-left: 1.55rem; color: var(--ink-soft); font-size: 1.02rem; }
+  .duties li + li { margin-top: 0.55rem; }
   .duties li::before { content: '—'; position: absolute; left: 0; color: var(--ink-mute); }
 
   .pull {
-    margin-top: 1.4rem; padding-left: 1.25rem; border-left: 2px solid var(--primary);
-    font-family: var(--ff-display); font-size: 1.05rem; line-height: 1.5;
+    margin-top: 1.4rem; padding-left: 1.25rem; border-left: 3px solid var(--primary);
+    font-family: var(--ff-display); font-weight: 500;
+    font-size: 1.15rem; line-height: 1.5;
   }
   .pull strong { font-weight: 600; }
 
-  .entry-side, .work-side { font-size: 0.88rem; }
+  .entry-side, .work-side { font-size: 0.98rem; }
   .entry-side h4, .work-side h4 { margin-bottom: 0.6rem; font-weight: 500; }
-  .inline-list { color: var(--ink-soft); }
+  .inline-list { color: var(--ink-soft); font-weight: 500; line-height: 1.75; }
   .inline-list span:not(:last-child)::after { content: ' · '; color: var(--ink-mute); }
 
   /* ---------- capability columns, divided by hairlines ---------- */
@@ -380,40 +386,40 @@
     .column { border-right: 1px solid var(--rule-soft); }
     .column:last-child { border-right: 0; padding-right: 0; }
   }
-  .column-no { font-family: var(--ff-display); font-size: 1.5rem; line-height: 1; color: var(--accent); }
+  .column-no { font-family: var(--ff-display); font-size: 1.7rem; font-weight: 600; line-height: 1; color: var(--accent); }
   .column h3 {
-    font-family: var(--ff-display); font-size: 1.12rem; font-weight: 600;
+    font-family: var(--ff-display); font-size: 1.22rem; font-weight: 700;
     letter-spacing: -0.01em; margin: 0.75rem 0 0.4rem;
   }
-  .column > p { color: var(--ink-mute); font-size: 0.86rem; }
+  .column > p { color: var(--ink-mute); font-size: 0.97rem; }
   .column ul { list-style: none; margin-top: 1.1rem; }
   .column li {
-    font-size: 0.92rem; color: var(--ink-soft);
-    padding: 0.42rem 0; border-top: 1px solid var(--rule-soft);
+    font-size: 1.02rem; color: var(--ink-soft);
+    padding: 0.55rem 0; border-top: 1px solid var(--rule-soft);
   }
   .column li:first-child { border-top: 0; padding-top: 0; }
 
   /* ---------- work ---------- */
   .works { border-top: 1px solid var(--rule); }
-  .work-no { font-family: var(--ff-display); font-size: 2.3rem; line-height: 1; color: var(--ink-mute); }
+  .work-no { font-family: var(--ff-display); font-size: 2.5rem; font-weight: 600; line-height: 1; color: var(--ink-mute); }
   .work.is-lead .work-no { color: var(--accent); }
   .work-title {
-    font-family: var(--ff-display); font-weight: 500; letter-spacing: -0.015em;
+    font-family: var(--ff-display); font-weight: 600; letter-spacing: -0.015em;
     font-size: clamp(1.35rem, 2.7vw, 1.8rem);
   }
   .work.is-lead .work-title { font-size: clamp(1.55rem, 3.4vw, 2.25rem); }
   .work-kind { margin-top: 0.5rem; }
-  .work-desc { color: var(--ink-soft); margin-top: 0.9rem; max-width: 62ch; }
+  .work-desc { color: var(--ink-soft); margin-top: 0.9rem; max-width: 60ch; font-size: 1.05rem; }
   .work-mine {
-    margin-top: 1rem; padding-left: 1.25rem; border-left: 2px solid var(--accent-mark);
-    font-size: 0.93rem; color: var(--ink-soft); max-width: 60ch;
+    margin-top: 1.1rem; padding-left: 1.25rem; border-left: 3px solid var(--accent-mark);
+    font-size: 1.02rem; color: var(--ink-soft); max-width: 58ch;
   }
   .work-mine strong { color: var(--ink); font-weight: 600; }
 
   .work-links { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; margin-top: 1.25rem; }
   .ext {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.9rem; font-weight: 500;
+    font-size: 1.02rem; font-weight: 600;
     border-bottom: 1px solid var(--rule); padding-bottom: 0.15rem;
     transition: color 0.2s, border-color 0.2s;
   }
@@ -428,22 +434,22 @@
     padding: 1.35rem 0; border-bottom: 1px solid var(--rule-soft);
   }
   @media (max-width: 620px) { .row { grid-template-columns: 1fr; } }
-  .row-what { font-family: var(--ff-display); font-size: 1.1rem; font-weight: 500; }
-  .row-where { color: var(--ink-soft); font-size: 0.92rem; margin-top: 0.2rem; }
-  .row-mark { font-family: var(--ff-display); font-size: 1.3rem; color: var(--primary); }
+  .row-what { font-family: var(--ff-display); font-size: 1.22rem; font-weight: 600; }
+  .row-where { color: var(--ink-soft); font-size: 1.02rem; margin-top: 0.25rem; }
+  .row-mark { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 600; color: var(--primary); }
 
   .two-up {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
     gap: clamp(1.5rem, 4vw, 3.5rem); margin-top: clamp(2rem, 4vw, 3rem);
   }
   .stack h3 {
-    font-family: var(--ff-mono); font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute);
+    font-family: var(--ff-mono); font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft);
     padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule);
   }
   .stack ul { list-style: none; }
-  .stack li { padding: 0.8rem 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.95rem; }
-  .stack li span { display: block; color: var(--ink-mute); font-size: 0.84rem; margin-top: 0.15rem; }
+  .stack li { padding: 0.85rem 0; border-bottom: 1px solid var(--rule-soft); font-size: 1.05rem; font-weight: 500; }
+  .stack li span { display: block; color: var(--ink-mute); font-size: 0.95rem; font-weight: 400; margin-top: 0.2rem; }
 
   /* ---------- contact ---------- */
   .contact-wrap {
@@ -452,21 +458,21 @@
   }
   @media (max-width: 860px) { .contact-wrap { grid-template-columns: 1fr; } }
   .contact-claim {
-    font-family: var(--ff-display); font-weight: 400; letter-spacing: -0.02em;
+    font-family: var(--ff-display); font-weight: 500; letter-spacing: -0.02em;
     font-size: clamp(1.65rem, 3.8vw, 2.5rem); line-height: 1.18;
   }
   .contact-claim em { font-style: italic; color: var(--accent); }
 
   .directory { border-top: 1px solid var(--rule); }
   .directory a {
-    display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 1rem;
+    display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 1rem;
     gap: 1rem; align-items: center;
-    padding: 1.05rem 0; border-bottom: 1px solid var(--rule-soft);
+    padding: 1.15rem 0; border-bottom: 1px solid var(--rule-soft);
     transition: padding 0.25s ease, color 0.2s ease;
   }
   .directory a:hover { color: var(--accent); padding-left: 0.5rem; }
-  .dir-value { font-size: 0.97rem; font-weight: 500; word-break: break-word; }
-  .dir-arrow { font-family: var(--ff-mono); color: var(--ink-mute); }
+  .dir-value { font-size: 1.08rem; font-weight: 600; word-break: break-word; }
+  .dir-arrow { font-family: var(--ff-mono); font-size: 1.05rem; color: var(--ink-mute); }
   .directory a:hover .dir-arrow { color: var(--accent); }
 
   /* ---------- colophon ---------- */
@@ -475,11 +481,11 @@
     display: flex; flex-wrap: wrap; align-items: baseline;
     justify-content: space-between; gap: 1rem 2rem;
   }
-  .colophon-name { font-family: var(--ff-display); font-size: 1.05rem; font-weight: 600; }
+  .colophon-name { font-family: var(--ff-display); font-size: 1.18rem; font-weight: 700; }
   .colophon-links { display: flex; gap: 1.25rem; }
   .colophon-links a {
-    font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--ink-soft);
+    font-family: var(--ff-body); font-size: 0.97rem; font-weight: 600;
+    letter-spacing: 0; color: var(--ink-soft);
     padding-bottom: 0.1rem; border-bottom: 1px solid transparent;
   }
   .colophon-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
@@ -667,7 +673,7 @@
 
         <article class="entry reveal" data-track="hr">
           <div class="entry-when">
-            <span class="label">Sep 2026 — Present</span>
+            <span class="label plain">Sep 2026 — Present</span>
             <span class="entry-now">Current</span>
           </div>
           <div>
@@ -697,7 +703,7 @@
 
         <article class="entry reveal" data-track="hr dev">
           <div class="entry-when">
-            <span class="label">Mar 2026 — Sep 2026</span>
+            <span class="label plain">Mar 2026 — Sep 2026</span>
             <span class="label">Internship</span>
           </div>
           <div>
@@ -723,7 +729,7 @@
 
         <article class="entry reveal" data-track="dev">
           <div class="entry-when">
-            <span class="label">Oct 2025 — Feb 2026</span>
+            <span class="label plain">Oct 2025 — Feb 2026</span>
           </div>
           <div>
             <h3 class="entry-role">Java Developer Trainee</h3>
@@ -745,7 +751,7 @@
 
         <article class="entry reveal" data-track="ml">
           <div class="entry-when">
-            <span class="label">Jun 2024 — Jul 2024</span>
+            <span class="label plain">Jun 2024 — Jul 2024</span>
           </div>
           <div>
             <h3 class="entry-role">Machine Learning Intern</h3>
@@ -1064,7 +1070,7 @@
 
       <div class="rows reveal">
         <div class="row">
-          <p class="label">Oct 2022 — Apr 2026</p>
+          <p class="label plain">Oct 2022 — Apr 2026</p>
           <div>
             <p class="row-what">B.E. Computer Science &amp; Engineering — Artificial Intelligence &amp; Machine Learning</p>
             <p class="row-where">Sri Krishna College of Technology, Coimbatore, Tamil Nadu</p>
@@ -1072,7 +1078,7 @@
           <p class="row-mark">Graduated</p>
         </div>
         <div class="row">
-          <p class="label">May 2021 — Apr 2022</p>
+          <p class="label plain">May 2021 — Apr 2022</p>
           <div>
             <p class="row-what">Higher Secondary Education</p>
             <p class="row-where">Adharsh Vidhyala Matric Hr Sec School, Anthiyur, Erode</p>
@@ -1080,7 +1086,7 @@
           <p class="row-mark">83%</p>
         </div>
         <div class="row">
-          <p class="label">May 2019 — Mar 2020</p>
+          <p class="label plain">May 2019 — Mar 2020</p>
           <div>
             <p class="row-what">Secondary School Leaving Certificate</p>
             <p class="row-where">St. Theresa's Matriculation School, Anthiyur, Erode</p>
